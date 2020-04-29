@@ -17,7 +17,18 @@ def sass():
     os.chdir("../")
     os.system("code .")
     os.system("node-sass --output-style compressed --watch sass/style.scss estilo.css")
+def pasta_raiz():
+    nome_correto = False
+    while nome_correto == False:
+        nome_projeto = str(input("Digite o nome do projeto \n"))
+        if " " in nome_projeto:
+            print("Digite um nome sem espaços")
+        else:
+            nome_correto = True
+    os.mkdir(nome_projeto)
+    os.chdir(nome_projeto)
 def main():
+    pasta_raiz()
     npm()
     html()
     js()
